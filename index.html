@@ -156,12 +156,12 @@ section{padding:50px 0}
 
 .events{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:820px;margin:0 auto}
 .ev{background:linear-gradient(180deg,#fbf5e9,#f1e6cf);border:1px solid rgba(201,167,104,.55);border-radius:16px;
-  padding:28px 24px;text-align:center;box-shadow:0 20px 44px -30px rgba(60,30,12,.5)}
-.ev .ico{width:44px;height:44px;margin:0 auto 12px;color:var(--maroon)}
+  padding:18px 22px;text-align:center;box-shadow:0 20px 44px -30px rgba(60,30,12,.5)}
+.ev .ico{width:38px;height:38px;margin:0 auto 7px;color:var(--maroon)}
 .ev .kind{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600}
-.ev h3{font-family:"Cormorant Garamond",serif;font-size:1.8rem;font-weight:600;color:var(--maroon);margin:7px 0 2px}
+.ev h3{font-family:"Cormorant Garamond",serif;font-size:1.8rem;font-weight:600;color:var(--maroon);margin:3px 0 2px}
 .ev .day{font-family:"Cormorant Garamond",serif;font-size:1.12rem}
-.ev .time{margin-top:11px;font-weight:600;font-size:1.04rem;color:var(--groom);font-variant-numeric:tabular-nums}
+.ev .time{margin-top:7px;font-weight:600;font-size:1.04rem;color:var(--groom);font-variant-numeric:tabular-nums}
 .ev .note{font-size:.82rem;color:var(--ink-soft);margin-top:4px;font-style:italic}
 
 .venue-card{border-radius:16px;overflow:hidden;border:1px solid rgba(201,167,104,.5);box-shadow:0 24px 54px -32px rgba(60,30,12,.55);max-width:900px;margin:0 auto}
@@ -210,6 +210,9 @@ footer .fam{color:var(--ink-soft);max-width:30ch} footer .tag{font-weight:600;co
 .tr-row.wx{grid-column:1 / -1;align-items:center}
 
 /* countdown + call us */
+/* closing block (countdown + footer) sits on one uniform colour, no left/right split */
+.closing{position:relative;isolation:isolate}
+.closing::before{content:"";position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:100vw;background:var(--paper);z-index:-1}
 .count-sec{text-align:center;padding:10px 0 4px}
 .count{display:flex;justify-content:center;align-items:flex-start;gap:8px}
 .cu{min-width:58px}
@@ -240,12 +243,13 @@ footer .fam{color:var(--ink-soft);max-width:30ch} footer .tag{font-weight:600;co
   .spine .stem{display:none}
   .events{grid-template-columns:1fr}
   /* shrink the overlaid trait cards so they fit the narrower side-by-side portraits */
-  .cards{top:8px;gap:6px;max-width:93%}
-  .person.g .cards{right:7px} .person.b .cards{left:7px}
-  .tcard{gap:6px;padding:5px 7px;border-radius:9px}
-  .tcard svg{width:16px;height:16px}
-  .tcard .tt{font-size:.66rem;letter-spacing:0}
-  .tcard .ss{font-size:.54rem}
+  .cards{top:6px;gap:4px;max-width:95%}
+  .person.g .cards{right:6px} .person.b .cards{left:6px}
+  .tcard{gap:5px;padding:4px 6px;border-radius:8px}
+  .tcard svg{width:13px;height:13px}
+  .tcard .tt{font-size:.58rem;letter-spacing:0;line-height:1.05}
+  .tcard .ss{font-size:.48rem;line-height:1}
+  .person img{aspect-ratio:1/1.62}
   .cap{padding:12px 8px}
   .cap .who{font-size:1.15rem}
   #travel .travel-list{grid-template-columns:1fr}
@@ -392,7 +396,7 @@ footer .fam{color:var(--ink-soft);max-width:30ch} footer .tag{font-weight:600;co
   </section>
 
   <section id="travel">
-    <div class="sec-head"><div class="eyebrow">Plan your trip</div><h2 class="serif">Getting to the venue</h2><p>Suguna Auditorium is in Kalapatti, north-east Coimbatore — easy to reach from every arrival point.</p></div>
+    <div class="sec-head"><div class="eyebrow">Plan your trip</div><h2 class="serif">Getting to the venue</h2><p>Suguna Auditorium is in Kalapatti, north-east Coimbatore.</p></div>
     <div class="travel-list">
       <div class="tr-row">
         <div class="tr-ic"><svg viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg></div>
@@ -408,11 +412,12 @@ footer .fam{color:var(--ink-soft);max-width:30ch} footer .tag{font-weight:600;co
       </div>
       <div class="tr-row wx">
         <div class="tr-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M5 5l1.7 1.7M17.3 17.3 19 19M19 5l-1.7 1.7M6.7 17.3 5 19"/></svg></div>
-        <div class="tr-body"><div class="tr-h">Weather</div><div class="tr-main">Mid-December in Coimbatore</div><div class="tr-dist">Pleasant &amp; dry — around 20°C mornings and 29°C afternoons, with cool breezy evenings. A light shawl is perfect for the early-morning muhurtham.</div></div>
+        <div class="tr-body"><div class="tr-h">Weather</div><div class="tr-main">Mid-December in Coimbatore</div><div class="tr-dist">Pleasant &amp; dry — around 20°C mornings and 29°C afternoons, with cool breezy evenings.</div></div>
       </div>
     </div>
   </section>
 
+  <div class="closing">
   <section class="count-sec">
     <div class="sec-head"><div class="eyebrow">The wait begins</div></div>
     <div class="count" id="count">
@@ -439,6 +444,7 @@ footer .fam{color:var(--ink-soft);max-width:30ch} footer .tag{font-weight:600;co
     <div class="fam">The families of Hari Prasath &amp; Harshitha warmly invite you to share in their joy.</div>
     <div class="tag">#HariWedsHarshitha</div>
   </footer>
+  </div>
 </div>
 
 <button class="music-btn" id="musicBtn" type="button" aria-label="Mute or unmute music"><svg id="musicIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></svg></button>
